@@ -1,0 +1,285 @@
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Soft off-white */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Center the content container */
+}
+
+/* Create a container to keep text from hitting the edges */
+main {
+    width: 90%;
+    max-width: 900px;
+    padding: 40px 20px;
+}
+nav ul {
+    list-style-type: none;
+    background-color: #ffffff; /* White background for nav */
+    border: 1px solid #e0e0e0;
+    border-radius: 50px; /* Pill shape */
+    padding: 10px 30px;
+    display: inline-flex;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(181, 119, 181, 0.2); /* Soft purple shadow */
+    margin: 20px 0;
+}
+
+nav ul li {
+    border-right: none; /* Removed the harsh lines */
+    padding: 5px 10px;
+}
+
+nav ul li a {
+    color: #b577b5; /* Professional purple */
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #8a4a8a;
+    text-decoration: underline;
+}
+img.small {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 20px 20px 0;
+    float: left;
+    width: 200px;
+}
+section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px; /* Extra rounded for a "friendly" feel */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Very soft shadow */
+    margin-bottom: 40px;
+    border: 1px solid rgba(0,0,0,0.02);
+    width: 95%;
+    align-self: center;
+}
+
+/* Fun accent headers */
+h1,h2 {
+    color: #891889;
+    font-size: 2rem;
+    border-bottom: 2px solid #f3e8f3;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-indent: 10px;
+}
+h3 {
+    color: #094ddf;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f3e8f3;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-indent: 20px;
+}
+p { 
+    text-indent: 30px;
+    margin-left: 30px;
+}
+/* Float the headshot left with consistent spacing */
+.about-photo {  float: left;  width: 300px;              /* control width */  
+    max-width: 38vw;           /* remain reasonable on narrow screens */  
+    height: auto;              /* maintain aspect ratio */  
+    margin: 0 20px 16px 0;     /* space around the image */  
+    border-radius: 12px;  
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}/* Clear the float so the next elements/sections don't wrap around it */
+
+    .content::after {  
+        content: "";  display: table;  clear: both;
+    }/* Optional: make the text wrap slightly nicer around rounded corners */
+@supports (shape-outside: inset(10px round 12px)) {  
+    .about-photo {    shape-outside: inset(0 round 12px);  
+    }
+}
+#about, #hobbies, #contact {
+    background-color: #ffffff; /* Keep it clean white */
+    border-left: 5px solid #b577b5; /* Use the color as a sidebar accent instead */
+}
+.hidden {
+    display: none;
+}
+.toggle-btn {
+    /* Layout & Size */
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    /* Visual Style */
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #d1d5db;
+    border-radius: 6px; /* Rounded corners */
+    
+    /* Sleek Transitions */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Hover Effect - subtle change in background */
+.toggle-btn:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Active Effect - slight "press" look */
+.toggle-btn:active {
+    background-color: #f3f4f6;
+    transform: translateY(1px);
+}
+/* ================================
+   Reusable sizing tokens
+   - Clamp keeps consistent sizes but still responsive
+   ================================= */
+:root {
+  --gap: 16px;
+
+  /* Landscape 16:9 target size (same for photos & landscape videos) */
+  --landscape-w: clamp(320px, 55vw, 560px);
+
+  /* Portrait 9:16 target size (same for all portrait videos) */
+  --portrait-w: clamp(220px, 30vw, 360px);
+
+  /* Radius & shadow for media boxes */
+  --media-radius: 12px;
+  --media-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+/* Ensure the floating headshot in About doesn't break layout flow */
+.content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ================================
+   Shared grid wrapper
+   ================================= */
+.hobbies-grid {
+  display: grid;
+  gap: var(--gap);
+  align-items: start;
+  justify-content: center; /* center the whole block within the page */
+  margin-bottom: 24px;
+}
+
+/* DRONES: 2 columns → [stacked landscape] [single portrait] */
+.hobbies-grid.drones-grid {
+  grid-template-columns: var(--landscape-w) var(--portrait-w);
+}
+
+/* PRACTICAL SHOOTING: 3 columns → [stacked landscape] [portrait] [portrait] */
+.hobbies-grid.shooting-grid {
+  grid-template-columns: var(--landscape-w) var(--portrait-w) var(--portrait-w);
+}
+
+/* Left columns stack for both grids */
+.landscape-stack {
+  display: grid;
+  grid-auto-flow: row;
+  gap: var(--gap);
+}
+
+/* Each landscape box holds either an <img> or an <iframe> at 16:9 */
+.landscape-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+/* Portrait holders (iframes) at 9:16, uniform size */
+.portrait-box {
+  width: 100%;
+  max-width: var(--portrait-w);
+  aspect-ratio: 9 / 16;
+  position: relative;
+}
+
+/* Media resets: make iframes and images fill their boxes uniformly */
+.landscape-box iframe,
+.portrait-box iframe {
+  width: 100% !important;  /* override FB iframe attributes */
+  height: 100% !important; /* override FB iframe attributes */
+  border: 0;
+  display: block;
+  border-radius: var(--media-radius);
+  box-shadow: var(--media-shadow);
+}
+
+.landscape-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;        /* crop uniformly if aspect doesn't match 16:9 */
+  border-radius: var(--media-radius);
+  box-shadow: var(--media-shadow);
+}
+
+/* ================================
+   Spacing for portrait columns in shooting grid
+   ================================= */
+.hobbies-grid.shooting-grid .portrait-box {
+  /* they already sit in separate grid columns; add vertical alignment niceties if needed */
+  align-self: start;
+}
+
+/* ================================
+   Responsive adjustments
+   ================================= */
+
+/* Medium screens: keep Drones as 2 columns if space allows; PS becomes 2 columns */
+@media (max-width: 1100px) {
+  .hobbies-grid.shooting-grid {
+    /* first column is landscape stack; second column will auto-wrap both portraits vertically */
+    grid-template-columns: var(--landscape-w) var(--portrait-w);
+  }
+}
+
+/* Narrow screens: stack everything to one column */
+@media (max-width: 760px) {
+  .hobbies-grid.drones-grid,
+  .hobbies-grid.shooting-grid {
+    grid-template-columns: 1fr;
+    justify-items: center; /* center each box when single-column */
+  }
+
+  /* Make single-column sizes friendlier on phones */
+  :root {
+    --landscape-w: clamp(300px, 92vw, 560px);
+    --portrait-w: clamp(240px, 70vw, 360px);
+  }
+
+  /* Give the single portrait in drones a little top spacing when stacked */
+  .hobbies-grid.drones-grid .portrait-box {
+    margin-top: var(--gap);
+  }
+}
+
+/* Optional: tighter gaps on very small devices */
+@media (max-width: 420px) {
+  :root {
+    --gap: 12px;
+  }
+}
+@media (max-width: 600px) {
+    .about-photo {    
+        float: none;    
+        display: block;    
+        margin: 0 auto 16px auto; /* center on small screens */    
+        width: min(220px, 70vw);  
+    }
+}
+/* ================================
+   Minor polish for section headers
+   ================================= */
+.hobbies-grid + h3 {
+  margin-top: 32px; /* space between hobby groups */
+}
