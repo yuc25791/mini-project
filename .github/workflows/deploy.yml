@@ -1,0 +1,23 @@
+name: Deploy to AWS EC2
+
+# Trigger the pipeline only when you push to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          # The commands you want the server to run automatically
+          script: |
+            cd ~/projects/mini-project/src
+            git pull origin main
