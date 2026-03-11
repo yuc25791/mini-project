@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          # The commands you want the server to run automatically
+          # Pull updates from git
           script: |
             cd ~/projects/mini-project/src
             git pull origin main
