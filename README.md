@@ -14,22 +14,21 @@ Technologies Used
     JavaScript
 
 Project Structure
-    mini-project/  
-    │  
-    ├--- css 
-    |------ styles5.css         // CSS styling  
-    |--- images
-    |------ CY-01.jpeg
-    |------ CY-02.jpg
-    |------ CY-03.png
-    |------ PS-01.png
-    |------ PS-02.png
-    |------ PS-03.png
-    |------ ID-photo-01.png
-    |--- script
-    |------ showhide.js
-    |--- index.html        // Main HTML file  
-    └--- README.md         // This file  
+mini-project/
+├── css/
+│   └── styles5.css      # CSS styling
+├── images/
+│   ├── CY-01.jpeg
+│   ├── CY-02.jpg
+│   ├── CY-03.png
+│   ├── PS-01.png
+│   ├── PS-02.png
+│   ├── PS-03.png
+│   └── ID-photo-01.png
+├── script/
+│   └── showhide.js
+├── index.html           # Main HTML file
+└── README.md            # This file
 
 How to Run
     Clone the Repository:
