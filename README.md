@@ -33,7 +33,7 @@ Project Structure
 
 How to Run
     Clone the Repository:
-    1. git clone https://github.com/your-username/your-repo-name.git
+    1. git clone https://github.com/yuc25791/mini-project.git
     2. Open in Browser:
     3. Navigate to index.html in your browser.
     4. Or use a local server (e.g., python -m http.server if you have Python installed).
