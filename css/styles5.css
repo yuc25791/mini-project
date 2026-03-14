@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Soft off-white */
+    background-color: #f8f9fa; /* off-white color*/
     color: #333;
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@ img.small {
 section {
     background-color: #ffffff;
     padding: 30px;
-    border-radius: 16px; /* Extra rounded for a "friendly" feel */
+    border-radius: 16px; /* Extra rounded edge */
     box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Very soft shadow */
     margin-bottom: 40px;
     border: 1px solid rgba(0,0,0,0.02);
@@ -88,11 +88,11 @@ p {
     margin: 0 20px 16px 0;     /* space around the image */  
     border-radius: 12px;  
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}/* Clear the float so the next elements/sections don't wrap around it */
+}
 
     .content::after {  
         content: "";  display: table;  clear: both;
-    }/* Optional: make the text wrap slightly nicer around rounded corners */
+    }/* make the text wrap around rounded corners */
 @supports (shape-outside: inset(10px round 12px)) {  
     .about-photo {    shape-outside: inset(0 round 12px);  
     }
@@ -116,7 +116,7 @@ p {
     border: 1px solid #d1d5db;
     border-radius: 6px; /* Rounded corners */
     
-    /* Sleek Transitions */
+    /* Transitions */
     cursor: pointer;
     transition: all 0.2s ease;
     outline: none;
@@ -167,7 +167,7 @@ p {
   display: grid;
   gap: var(--gap);
   align-items: start;
-  justify-content: center; /* center the whole block within the page */
+  justify-content: center; /* center the block within the page */
   margin-bottom: 24px;
 }
 
@@ -180,7 +180,10 @@ p {
 .hobbies-grid.shooting-grid {
   grid-template-columns: var(--landscape-w) var(--portrait-w) var(--portrait-w);
 }
-
+/* Cyber : 2 columns → [stacked landscape] */
+.hobbies-grid.cyber-grid {
+  grid-template-columns: var(--landscape-w) var(--landscape-w);
+}
 /* Left columns stack for both grids */
 .landscape-stack {
   display: grid;
@@ -227,7 +230,6 @@ p {
    Spacing for portrait columns in shooting grid
    ================================= */
 .hobbies-grid.shooting-grid .portrait-box {
-  /* they already sit in separate grid columns; add vertical alignment niceties if needed */
   align-self: start;
 }
 
@@ -235,7 +237,7 @@ p {
    Responsive adjustments
    ================================= */
 
-/* Medium screens: keep Drones as 2 columns if space allows; PS becomes 2 columns */
+/* Medium screens: keep Drones as 2 columns if space allows */
 @media (max-width: 1100px) {
   .hobbies-grid.shooting-grid {
     /* first column is landscape stack; second column will auto-wrap both portraits vertically */
@@ -246,12 +248,13 @@ p {
 /* Narrow screens: stack everything to one column */
 @media (max-width: 760px) {
   .hobbies-grid.drones-grid,
-  .hobbies-grid.shooting-grid {
+  .hobbies-grid.shooting-grid,
+  .hobbies-grid.cyber-grid {
     grid-template-columns: 1fr;
     justify-items: center; /* center each box when single-column */
   }
 
-  /* Make single-column sizes friendlier on phones */
+  /* Make single-column sizes visible on phones */
   :root {
     --landscape-w: clamp(300px, 92vw, 560px);
     --portrait-w: clamp(240px, 70vw, 360px);
@@ -263,10 +266,62 @@ p {
   }
 }
 
+
+/* ================================
+   Minor polish for section headers
+   ================================= */
+.hobbies-grid + h3 {
+  margin-top: 32px; /* space between hobby groups */
+}
+
+/* ------------------------
+   Credits Section
+   ------------------------ */
+.credits-section {
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;            /* Consistent padding */
+    margin-top: 40px;         /* Spacing from previous sections */
+    text-align: center;       /* Centered text */
+    font-size: 14px;          /* Consistent text size */
+    color: #333;              /* Body text color */
+}
+
+.credits-section h3 {
+    margin-top: 0;            /* Remove top margin */
+    font-size: 16px;          /* Slightly larger heading */
+    color: #222;              /* Darker header color */
+}
+
+.credits-section ul {
+    list-style: none;         /* Remove default bullets */
+    padding: 0;               /* No padding */
+    margin: 10px 0;           /* Vertical spacing */
+}
+
+.credits-section ul li {
+    margin: 5px 0;            /* List item spacing */
+}
+
+/* ------------------------
+   Footer
+   ------------------------ */
+.footer {
+    background-color: #fff;   /* White background for footer */
+    padding: 20px;            /* Consistent padding */
+    margin-top: 40px;         /* Spacing from previous sections */
+    text-align: center;       /* Centered text */
+    font-size: 14px;          /* Consistent text size */
+    color: #333;              /* Body text color */
+}
+
 /* Optional: tighter gaps on very small devices */
 @media (max-width: 420px) {
   :root {
     --gap: 12px;
+  }
+  .credits-section,
+  .footer {
+      padding: 12px;
   }
 }
 @media (max-width: 600px) {
@@ -276,10 +331,11 @@ p {
         margin: 0 auto 16px auto; /* center on small screens */    
         width: min(220px, 70vw);  
     }
-}
-/* ================================
-   Minor polish for section headers
-   ================================= */
-.hobbies-grid + h3 {
-  margin-top: 32px; /* space between hobby groups */
+    .credits-section {
+        padding: 16px;         /* Slightly smaller padding on small screens */
+    }
+
+    .footer {
+        padding: 16px;
+    }
 }
