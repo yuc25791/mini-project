@@ -16,15 +16,15 @@
 
 mini-project/  
 ├── css/  
-│   └── styles5.css 
+│   └── styles5.css  <!-- CSS styling file -->  
 ├── images/  
 │   ├── CY-01.png  
 │   ├── CY-02.png  
-│   ├── CY-03.png
+│   ├── CY-03.png  
 │   ├── Demo-01.png  
-│   ├── Demo-02.png
-│   ├── FB_logo-01.png  
-│   ├── IG_logo-01.png  
+│   ├── Demo-02.png  
+│   ├── FB_logo-01.png  <!-- Facebook logo -->  
+│   ├── IG_logo-01.png  <!-- Instagram logo -->  
 │   ├── PS-01.png  
 │   ├── PS-02.png  
 │   ├── PS-03.png  
@@ -40,7 +40,6 @@ mini-project/
 4. Or use a local server (e.g., python -m http.server if you have Python installed).
 
 # Preview
-![Screenshot1](images/Demo-01.png)
 ![Screenshot2](images/Demo-02.png)
 
 # Live Demo 
