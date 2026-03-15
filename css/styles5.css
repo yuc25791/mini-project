@@ -284,10 +284,10 @@ p {
 }
 
 .social-links img {
-  indent
   width: 32px;
   height: 32px;
   transition: transform 0.2s;
+  justify-content: center;
 }
 
 .social-links img:hover {
