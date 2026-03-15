@@ -40,11 +40,11 @@ mini-project/
 4. Or use a local server (e.g., python -m http.server if you have Python installed).
 
 # Preview
-    ![](images/Demo-01.png)
-    ![](images/Demo-02.png)
+![Screenshot1](images/Demo-01.png)
+![Screenshot2](images/Demo-02.png)
 
 # Live Demo 
-    [Visit my website for a live demo!] (https://cmsc207mp.innocomptel.com)
+[Visit my website for a live demo!](https://cmsc207mp.innocomptel.com)
 
 # License: 
 - This project is licensed under the MIT License.
