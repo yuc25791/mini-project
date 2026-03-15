@@ -273,7 +273,26 @@ p {
 .hobbies-grid + h3 {
   margin-top: 32px; /* space between hobby groups */
 }
+/* ================================
+   Social Media
+   ================================= */
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  justify-content: center;  
+}
 
+.social-links img {
+  indent
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
 /* ------------------------
    Credits Section
    ------------------------ */
